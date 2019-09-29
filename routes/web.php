@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
 Route::get('bienvenido', function () {
     return 'Hola Bienvenido...!';
 });
@@ -30,3 +31,13 @@ Route::get('galeria', function () {
         'numero' => 125
         ]);
 });
+*/
+
+Route::get('fotos', function ($numero = 'Sin numero') {
+    return view('fotos');
+})->name('foto');
+
+Route::get('blog', function ($numero = 'Sin numero') {
+    return view('blog');
+})->name('noticias');
+
