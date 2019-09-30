@@ -8,7 +8,7 @@ use App\Nota;
 class PagesController extends Controller
 {
     public function inicio() {
-    	$notas = Nota::all();
+    	$notas = Nota::paginate(5);
 
         return view('welcome', compact('notas'));
     } 
