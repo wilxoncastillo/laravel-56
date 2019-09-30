@@ -1,15 +1,22 @@
 <?php
 
+Route::get('/', 'PagesController@inicio')->name('inicio');
+
+Route::get('detalle/{id}', 'PagesController@detalle')->name('notas.detalle');
+
+Route::post('/', 'PagesController@crear')->name('notas.crear');
+
+Route::get('fotos', 'PagesController@fotos')->name('foto');
+
+Route::get('blog', 'PagesController@blog')->name('noticias');
+
+Route::get('nosotros/{nombre?}', 'PagesController@nosotros')->name('nosotros');
+
 /*
 Route::get('/', function () {
     return view('welcome');
 });
 */
-
-Route::get('/', 'PagesController@inicio')->name('inicio');
-
-Route::get('detalle/{id}', 'PagesController@detalle')->name('notas.detalle');
-
 
 /*
 Route::get('bienvenido', function () {
@@ -35,7 +42,6 @@ Route::get('fotos', function () {
 })->name('foto');
 */
 
-Route::get('fotos', 'PagesController@fotos')->name('foto');
 
 /*
 Route::get('blog', function () {
@@ -43,7 +49,6 @@ Route::get('blog', function () {
 })->name('noticias');
 */
 
-Route::get('blog', 'PagesController@blog')->name('noticias');
 
 
 /*
@@ -60,4 +65,3 @@ Route::get('nosotros/{nombre?}', function ($nombre = null) {
 })->name('nosotros');
 */
 
-Route::get('nosotros/{nombre?}', 'PagesController@nosotros')->name('nosotros');

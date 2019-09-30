@@ -11,15 +11,23 @@
     <title></title>
   </head>
   <body>
-    <div class="container my-4">
-        <div class="container my-5">
-          <a href="{{ route('inicio') }}" class="btn btn-primary">Inicio</a>
-          <a href="{{ route('foto') }}" class="btn btn-primary">Fotos</a>
-          <a href="{{ route('noticias') }}" class="btn btn-primary">Blog</a>
-          <a href="{{ route('nosotros') }}" class="btn btn-primary">Nosotros</a>
-      </div>
+    @extends('plantilla')
 
-        <h1 class="display-4">Notas</h1>
+    @section('seccion')
+        <h1>Notas</h1>
+
+        @if(session('mensaje'))
+            <div class="alert alert-success">
+                {{ session('mensaje') }}
+            </div>
+        @endif
+
+        <form action="{{ route('notas.crear') }}" method="POST">
+            @csrf
+            <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2">
+            <input type="text" name="descripcion" placeholder="Descripcion" class="form-control mb-2">
+            <button class="btn btn-primary btn-block" type="submit">Agregar</button>
+        </form>
 
         <table class="table">
             <thead>
@@ -43,7 +51,8 @@
                 @endforeach
             </tbody>
         </table>
-</div>
+    
+    @endsection
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
