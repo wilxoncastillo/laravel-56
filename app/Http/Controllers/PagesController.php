@@ -19,13 +19,15 @@ class PagesController extends Controller
         return view('notas.detalle', compact('nota'));
     }
 
+
+
     public function crear(Request $request) {
         //return $request->all();
 
         $request->validate([
             'nombre' => 'required',
             'descripcion' => 'required',
-        ]);
+        ]);       
 
         $nota = new Nota;
         $nota->nombre = $request->nombre;
@@ -33,6 +35,28 @@ class PagesController extends Controller
         $nota->save();
 
         return back()->with('mensaje', 'Nota agregada...!');
+    }
+
+    public function editar($id) {
+        $nota = Nota::findOrFail($id);
+
+        return view('notas.editar', compact('nota'));
+    }
+
+    public function update(Request $request, $id) {
+        $nota = Nota::findOrFail($id);
+        
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+        ]);  
+        
+        $nota->nombre = $request->nombre;
+        $nota->descripcion = $request->descripcion;
+        $nota->save();
+
+        return back()->with('mensaje', 'Nota actualizada...!');
+
     }
 
     public function fotos() {
