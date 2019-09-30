@@ -59,6 +59,15 @@ class PagesController extends Controller
 
     }
 
+    public function eliminar($id)
+    {
+        $nota = Nota::findOrFail($id);
+
+        $nota->delete();
+
+        return back()->with('mensaje', 'Nota eliminada...!');
+    }
+
     public function fotos() {
     	return view('fotos');
     } 

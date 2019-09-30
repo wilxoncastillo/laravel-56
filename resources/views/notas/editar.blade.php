@@ -22,7 +22,7 @@
 	</div>
 	@endif
 
-	<form action="{{ route('notas.update', $nota->id) }}" method="POST">
+	<form action="{{ route('notas.update', $nota) }}" method="POST">
 		@csrf
 		@method('PUT')
 		<input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ old('nombre', $nota->nombre) }}">
