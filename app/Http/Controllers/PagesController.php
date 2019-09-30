@@ -22,6 +22,11 @@ class PagesController extends Controller
     public function crear(Request $request) {
         //return $request->all();
 
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+        ]);
+
         $nota = new Nota;
         $nota->nombre = $request->nombre;
         $nota->descripcion = $request->descripcion;

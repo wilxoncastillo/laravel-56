@@ -12,6 +12,8 @@ Route::get('blog', 'PagesController@blog')->name('noticias');
 
 Route::get('nosotros/{nombre?}', 'PagesController@nosotros')->name('nosotros');
 
+
+
 /*
 Route::get('/', function () {
     return view('welcome');
