@@ -11,12 +11,18 @@
     <title></title>
   </head>
   <body>
-    <div class="container">
+    <div class="container my-5">
       <a href="{{ route('foto') }}" class="btn btn-primary">Fotos</a>
       <a href="{{ route('noticias') }}" class="btn btn-primary">Blog</a>
+      <a href="{{ route('nosotros') }}" class="btn btn-primary">Nosotros</a>
     </div>
+    
     <div class="container">
       @yield('seccion')
+    </div>
+
+    <div class="container bg-dark text-white text-center">
+      Footer
     </div>
 
     <!-- Optional JavaScript -->
