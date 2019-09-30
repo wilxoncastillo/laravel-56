@@ -12,6 +12,13 @@
   </head>
   <body>
     <div class="container my-4">
+        <div class="container my-5">
+          <a href="{{ route('inicio') }}" class="btn btn-primary">Inicio</a>
+          <a href="{{ route('foto') }}" class="btn btn-primary">Fotos</a>
+          <a href="{{ route('noticias') }}" class="btn btn-primary">Blog</a>
+          <a href="{{ route('nosotros') }}" class="btn btn-primary">Nosotros</a>
+      </div>
+
         <h1 class="display-4">Notas</h1>
 
         <table class="table">
@@ -27,7 +34,9 @@
                 @foreach($notas as $item)
                 <tr>
                     <th scope="row">{{ $item->id }}</th>
-                    <td>{{ $item->nombre }}</td>
+                    <td>
+                        <a href="{{ route('notas.detalle', $item) }}">{{ $item->nombre }}</a>
+                    </td>
                     <td>{{ $item->descripcion }}</td>
                     <td>@mdo</td>
                 </tr>
